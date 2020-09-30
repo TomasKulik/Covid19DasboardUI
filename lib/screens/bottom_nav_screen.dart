@@ -1,3 +1,4 @@
+import 'package:covid19_dasboard_ui/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -7,8 +8,8 @@ class BottomNavScreen extends StatefulWidget {
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
-    Scaffold(),
-    Scaffold(),
+    HomeScreen(),
+    StatsScreen(),
     Scaffold(),
     Scaffold(),
     Scaffold(),
