@@ -1,5 +1,6 @@
 import 'package:covid19_dasboard_ui/config.dart/palette.dart';
 import 'package:covid19_dasboard_ui/config.dart/styles.dart';
+import 'package:covid19_dasboard_ui/data/data.dart';
 import 'package:covid19_dasboard_ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
         physics: ClampingScrollPhysics(),
         slivers: [
           _buildHeader(screenHeight),
+          _buildPreventionTips(screenHeight),
         ],
       ),
     );
@@ -94,6 +96,49 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 )
               ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _buildPreventionTips(double screenHeight) {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Prevention Tips',
+              style: const TextStyle(
+                fontSize: 22.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: prevention
+                  .map((e) => Column(
+                        children: [
+                          Image.asset(
+                            e.keys.first,
+                            height: screenHeight * 0.12,
+                          ),
+                          SizedBox(height: screenHeight * 0.015),
+                          Text(
+                            e.values.first,
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ))
+                  .toList(),
             ),
           ],
         ),
