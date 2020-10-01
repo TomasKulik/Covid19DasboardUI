@@ -1,4 +1,5 @@
 import 'package:covid19_dasboard_ui/config.dart/palette.dart';
+import 'package:covid19_dasboard_ui/config.dart/styles.dart';
 import 'package:covid19_dasboard_ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -56,9 +57,84 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+            SizedBox(height: screenHeight * 0.03),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Are you feeling sick?',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.01),
+                Text(
+                  'If you feel sick with any COVID-19 symptoms, please call or text us immediately for help',
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 15.0,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.03),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _HelpButton(
+                      label: 'Call Now',
+                      icon: Icons.phone,
+                      color: Colors.red,
+                    ),
+                    _HelpButton(
+                      label: 'Send SMS',
+                      icon: Icons.chat_bubble,
+                      color: Colors.blue,
+                    ),
+                  ],
+                )
+              ],
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _HelpButton extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  final Color color;
+
+  const _HelpButton({
+    Key key,
+    @required this.label,
+    @required this.icon,
+    @required this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton.icon(
+      padding: const EdgeInsets.symmetric(
+        vertical: 10.0,
+        horizontal: 20.0,
+      ),
+      onPressed: () {},
+      color: color,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      icon: Icon(
+        icon,
+        color: Colors.white,
+      ),
+      label: Text(
+        label,
+        style: Styles.buttonTextStyle,
+      ),
+      textColor: Colors.white,
     );
   }
 }
