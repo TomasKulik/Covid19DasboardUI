@@ -84,15 +84,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _HelpButton(
-                      label: 'Call Now',
-                      icon: Icons.phone,
-                      color: Colors.red,
+                    _buildHelpButton(
+                      'Call Now',
+                      Icons.phone,
+                      Colors.red,
                     ),
-                    _HelpButton(
-                      label: 'Send SMS',
-                      icon: Icons.chat_bubble,
-                      color: Colors.blue,
+                    _buildHelpButton(
+                      'Send SMS',
+                      Icons.chat_bubble,
+                      Colors.blue,
                     ),
                   ],
                 )
@@ -194,22 +194,9 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
 
-class _HelpButton extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final Color color;
-
-  const _HelpButton({
-    Key key,
-    @required this.label,
-    @required this.icon,
-    @required this.color,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+  FlatButton _buildHelpButton(
+      String label, IconData icon, MaterialColor color) {
     return FlatButton.icon(
       padding: const EdgeInsets.symmetric(
         vertical: 10.0,
