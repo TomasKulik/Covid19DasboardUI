@@ -2,6 +2,7 @@ import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:covid19_dasboard_ui/config.dart/palette.dart';
 import 'package:covid19_dasboard_ui/config.dart/styles.dart';
 import 'package:covid19_dasboard_ui/widgets/custom_app_bar.dart';
+import 'package:covid19_dasboard_ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class StatsScreen extends StatefulWidget {
@@ -21,6 +22,12 @@ class _StatsScreenState extends State<StatsScreen> {
           _buildHeader(),
           _buildRegionTabBar(),
           _buildStatsBar(),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            sliver: SliverToBoxAdapter(
+              child: StatsGrid(),
+            ),
+          ),
         ],
       ),
     );
