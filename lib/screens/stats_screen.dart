@@ -1,6 +1,7 @@
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:covid19_dasboard_ui/config.dart/palette.dart';
 import 'package:covid19_dasboard_ui/config.dart/styles.dart';
+import 'package:covid19_dasboard_ui/data/data.dart';
 import 'package:covid19_dasboard_ui/widgets/custom_app_bar.dart';
 import 'package:covid19_dasboard_ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,12 @@ class _StatsScreenState extends State<StatsScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             sliver: SliverToBoxAdapter(
               child: StatsGrid(),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 20.0),
+            sliver: SliverToBoxAdapter(
+              child: CovidBarChart(covidCases: covidUSADailyNewCases),
             ),
           ),
         ],
