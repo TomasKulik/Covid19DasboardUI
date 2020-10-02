@@ -20,6 +20,7 @@ class _StatsScreenState extends State<StatsScreen> {
         slivers: <Widget>[
           _buildHeader(),
           _buildRegionTabBar(),
+          _buildStatsBar(),
         ],
       ),
     );
@@ -64,6 +65,29 @@ class _StatsScreenState extends State<StatsScreen> {
             tabs: [
               Text('My Country'),
               Text('Global'),
+            ],
+            onTap: (index) {},
+          ),
+        ),
+      ),
+    );
+  }
+
+  SliverPadding _buildStatsBar() {
+    return SliverPadding(
+      padding: const EdgeInsets.all(20.0),
+      sliver: SliverToBoxAdapter(
+        child: DefaultTabController(
+          length: 3,
+          child: TabBar(
+            indicatorColor: Colors.transparent,
+            labelStyle: Styles.tabTextStyle,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white60,
+            tabs: [
+              Text('Total'),
+              Text('Today'),
+              Text('Yesterday'),
             ],
             onTap: (index) {},
           ),
